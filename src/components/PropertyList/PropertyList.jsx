@@ -68,29 +68,29 @@ const PropertyList = ({ searchTerm = "" }) => {
       property.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
-    <div className="min-h-screen py-16">
-      <div className="max-w-6xl px-6 mx-auto">
-        <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="w-full min-h-screen py-10 sm:py-12 md:py-16">
+      <div className="w-full max-w-6xl px-4 mx-auto sm:px-6">
+       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 md:gap-8">
           {filteredProperties.map((property) => (
             <div key={property.id}
-              className="overflow-hidden transition bg-white border-2 border-gray-300 shadow-lg rounded-3xl hover:scale-105">
+              className="overflow-hidden transition bg-white border-2 border-gray-300 shadow-lg rounded-2xl sm:rounded-3xl hover:scale-105 hover:shadow-xl">
               <img src={property.image} alt={property.title}
-                className="object-cover w-full h-48" />
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-gray-800">
+                className="object-cover w-full h-32 sm:h-40 md:h-48" />
+              <div className="p-3 sm:p-4 md:p-5">
+                <h3 className="text-xs font-bold text-gray-800 truncate sm:text-sm md:text-lg">
                   {property.location}
                 </h3>
-                <p className="mt-1 text-gray-600">
+                <p className="mt-1 text-xs text-gray-600 sm:text-sm line-clamp-1">
                   {property.title}
                 </p>
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-xs text-gray-500 line-clamp-2">
                   {property.details}
                 </p>
-                <div className="flex items-center justify-between mt-4">
-                  <span className="text-lg font-semibold text-blue-600">
-                    € {property.price}/night
+                <div className="flex flex-wrap items-center justify-between gap-1 mt-3 sm:mt-4">
+                  <span className="text-xs font-semibold text-blue-600 sm:text-base md:text-lg">
+                    € {property.price}<span className="text-xs">/night</span>
                   </span>
-                  <span className="font-medium text-yellow-500">
+                  <span className="text-xs font-medium text-yellow-500 sm:text-base">
                     ⭐ {property.rating}
                   </span>
                 </div>
